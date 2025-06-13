@@ -1,0 +1,1 @@
+import{s as t}from"./api.clients-xZY3H6Gu.js";document.querySelector("form").addEventListener("submit",async r=>{r.preventDefault();const a=r.target.email.value,e=r.target.password.value,{error:o}=await t.auth.signInWithPassword({email:a,password:e});if(o){console.error("Login error:",o),alert("Błąd logowania. Sprawdź konsolę.");return}window.location.href="/"});

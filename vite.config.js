@@ -21,6 +21,6 @@ export default defineConfig({
     rollupOptions: {
       input: inputs,
     },
-    outDir: resolve(__dirname, 'dist'),
+    outDir: resolve(__dirname, 'docs'),
   },
 })
