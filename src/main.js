@@ -285,6 +285,16 @@ function setupEditArticleButton() {
           return;
         }
 
+        articleElement.dataset.title = title;
+        articleElement.dataset.subtitle = subtitle;
+        articleElement.dataset.content = content;
+        articleElement.dataset.author = author;
+
+        articleElement.querySelector('h2').textContent = title;
+        articleElement.querySelector('h3').textContent = subtitle;
+        articleElement.querySelector('p').textContent = content;
+        articleElement.querySelector('address').textContent = author;
+
         dialog.close();
         dialog.remove();
         await fetchArticles(true);
