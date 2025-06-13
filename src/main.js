@@ -240,7 +240,7 @@ function setupEditArticleButton() {
           </label>
             <label>
               Treść:
-              <textarea name="content" required class="border p-2 rounded w-full">${articleElement.dataset.subtitle}</textarea>
+              <textarea name="content" required class="border p-2 rounded w-full">${articleElement.dataset.content}</textarea>
             </label>
             <label>
               Autor:
