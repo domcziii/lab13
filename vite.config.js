@@ -14,6 +14,7 @@ for await (const entry of glob('src/**/*.html')) {
 }
 
 export default defineConfig({
+  base: '/lab13/',
   plugins: [
     tailwindcss(),
   ],
