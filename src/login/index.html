@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Logowanie</title>
     <link rel="stylesheet" href="/style.css">
   </head>
-  <body>
-    <div id="app">
-      <a href="/">Home</a>
-    </div>
+   <main id = "app" class="p-4 md:px-8 container mx-auto">
+      <nav>
+        <a href="/" class="bg-sky-400 hover:bg-sky-700 text-white py-1 px-4 rounded cursor-pointer text-lg"> Home </a>
+      </nav>
+      <h1 class="font-bold text-2xl mt-4">Zaloguj się</h1>
+      <form class="flex flex-col gap-4 mt-8">
+        <input name="email" type="email" placeholder="Email" class="p-2 border border-grey-300 rounded" />
+        <input name="password" type="password" placeholder="Hasło" class="p-2 border border-grey-300 rounded" />
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 cursor-pointer">Zaloguj się</button>
+      </form>
+    </main>
     <script type="module" src="/login/main.js"></script>
   </body>
 </html>
