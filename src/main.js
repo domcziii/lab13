@@ -47,7 +47,7 @@ async function fetchArticles(session) {
   const articleList = data.map((article, i) => {
     return `
       ${i > 0 ? '<hr />' : ''}
-      <article class="article" data-id="${article.id}">
+      <article class="article" data-id="${article.id}" data-title="${article.title}" data-subtitle="${article.subtitle}" data-author="${article.author}" data-content="${article.content}">
         <h2 class="font-bold text-2xl">${article.title}</h2>
         <h3 class="font-medium text">${article.subtitle}</h3>
         <div class="flex gap-2 text-sm text-grey-500">
@@ -221,6 +221,7 @@ function setupEditArticleButton() {
     editArticleButton.textContent = "Edytuj artykuł";
     editArticleButton.type = "button";
     editArticleButton.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-1 rounded";
+    console.log(articleElement.dataset);
 
     editArticleButton.addEventListener('click', () => {
       const dialog = document.createElement('dialog');
@@ -231,21 +232,22 @@ function setupEditArticleButton() {
           <form id="edit-article-form" class="flex flex-col gap-4">
             <label>
               Tytuł:
-              <input type="text" name="title" required class="border p-2 rounded w-full"/>
+              <input type="text" name="title" required class="border p-2 rounded w-full" value="${articleElement.dataset.title}"/>
             </label>
           <label>
             Podtytuł:
-            <input type="text" name="subtitle" required class="border p-2 rounded w-full"/>
+            <input type="text" name="subtitle" required class="border p-2 rounded w-full" value="${articleElement.dataset.subtitle}"/>
           </label>
             <label>
               Treść:
-              <textarea name="content" required class="border p-2 rounded w-full"></textarea>
+              <textarea name="content" required class="border p-2 rounded w-full">${articleElement.dataset.subtitle}</textarea>
             </label>
             <label>
               Autor:
-              <input type="text" name="author" required class="border p-2 rounded w-full"/>
+              <input type="text" name="author" required class="border p-2 rounded w-full" value="${articleElement.dataset.author}"/>
             </label>
             <button type="submit" class="bg-blue-500 text-white p-2 rounded">Zapisz zmiany</button>
+            <button type="button" id="cancel-button" class="bg-rose-500 hover:bg-rose-700 text-white p-2 rounded cursor-pointer">Anuluj</button>
           </form>
         </section>
       `;
@@ -254,6 +256,12 @@ function setupEditArticleButton() {
       dialog.showModal();
 
       const form = dialog.querySelector('#edit-article-form');
+      const cancelButton = dialog.querySelector('#cancel-button');
+    
+      cancelButton.addEventListener('click', async () => {
+      dialog.close();
+      dialog.remove();
+      })
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const title = event.target.title.value;
