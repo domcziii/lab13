@@ -6,12 +6,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const inputs = [];
+const inputs = glob.sync('src/**/*.html').map(entry => resolve(__dirname, entry));
 
-for await (const entry of glob('src/**/*.html')) {
-  console.log(resolve(__dirname, entry));
-  inputs.push(resolve(__dirname, entry));
-}
 
 export default defineConfig({
   base: '/lab13/',
