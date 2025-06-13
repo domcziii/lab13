@@ -246,7 +246,7 @@ function setupEditArticleButton() {
               Autor:
               <input type="text" name="author" required class="border p-2 rounded w-full" value="${articleElement.dataset.author}"/>
             </label>
-            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Zapisz zmiany</button>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">Zapisz zmiany</button>
             <button type="button" id="cancel-button" class="bg-rose-500 hover:bg-rose-700 text-white p-2 rounded cursor-pointer">Anuluj</button>
           </form>
         </section>
