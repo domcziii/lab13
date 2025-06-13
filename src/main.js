@@ -97,7 +97,7 @@ function setupLoginButton() {
 
   const loginButton = document.createElement('a');
   loginButton.textContent = 'Zaloguj';
-  loginButton.href = '/login/';
+  loginButton.href = '/lab13/login/';
   loginButton.className = "bg-sky-400 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded cursor-pointer";
 
   navbar.appendChild(loginButton);
